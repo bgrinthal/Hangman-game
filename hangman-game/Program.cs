@@ -101,8 +101,25 @@ namespace HangmanGame
             return rightLetters;
         }
 
+        // prints lines below words for "empty" letters not guessed yet
+        private static void pringLines(String randomWord)
+        {
+            // spacing
+            Console.Write("\r");
+            foreach(char c in randomWord)
+            {
+                // Allows console to encode Unicode characterse listed in the line below
+                Console.OutputEncoding = System.Text.Encoding.Unicode;
+                // print overline character 
+                Console.Write("\u0305");
+            }
+        }
+
         static void Main(string[] args)
         {
+            Console.WriteLine("Welcome to hangman!");
+            Console.Write("----------------------------------------------");
+
             
         }
     }
