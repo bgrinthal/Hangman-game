@@ -307,6 +307,17 @@ namespace HangmanGame
             }
         }
 
+        // bool IsAllAlphabetic(string value)
+        // {
+        //     foreach (char c in value)
+        //     {
+        //         if (!char.IsLetter(c))
+        //             return false;
+        //     }
+
+        //     return true;
+        // }
+
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to hangman :)");
@@ -345,45 +356,54 @@ namespace HangmanGame
                     // Prompt user to guess a letter
                     Console.Write("\nGuess a letter: ");
                     char letterGuessed = Console.ReadLine().ToUpper()[0];
-                    // Check if that letter has already been guessed
-                    if (currentLettersGuessed.Contains(letterGuessed))
+
+                    if(Char.IsLetter(letterGuessed) == false)
                     {
-                        Console.Write("\r\n You have already guessed this letter");
-                        printHangman(amountOfTimesWrong);
-                        currentLettersRight = printWord(currentLettersGuessed, randomWord);
-                        printLines(randomWord);
+                        Console.WriteLine("Must be a letter (a-z).  Guess again");
                     }
                     else
                     {
-                        // Check if guessed letter is in the randomWord
-                        bool right = false;
-                        for (int i = 0; i < randomWord.Length; i++) { if (letterGuessed == randomWord[i]) { right = true; } }
-
-                        // User is right
-                        if (right)
+                        // Check if that letter has already been guessed
+                        if (currentLettersGuessed.Contains(letterGuessed))
                         {
-                            // Prints hangman with no wrong ansers
+                            Console.Write("\r\n You have already guessed this letter");
                             printHangman(amountOfTimesWrong);
-                            //  Adds current guessed letter to out list of letters guessed and displays
-                            currentLettersGuessed.Add(letterGuessed);
-                            //  Sets current correct letters
                             currentLettersRight = printWord(currentLettersGuessed, randomWord);
-                            Console.Write("\r\n");
                             printLines(randomWord);
                         }
-                        // User was wrong af
                         else
                         {
-                            amountOfTimesWrong += 1;
-                            currentLettersGuessed.Add(letterGuessed);
-                            // Update the drawing
-                            printHangman(amountOfTimesWrong);
-                            // Print word
-                            currentLettersRight = printWord(currentLettersGuessed, randomWord);
-                            Console.Write("\r\n");
-                            printLines(randomWord);
+                            // Check if guessed letter is in the randomWord
+                            bool right = false;
+                            for (int i = 0; i < randomWord.Length; i++) { if (letterGuessed == randomWord[i]) { right = true; } }
+
+                            // User is right
+                            if (right)
+                            {
+                                // Prints hangman with no wrong ansers
+                                printHangman(amountOfTimesWrong);
+                                //  Adds current guessed letter to out list of letters guessed and displays
+                                currentLettersGuessed.Add(letterGuessed);
+                                //  Sets current correct letters
+                                currentLettersRight = printWord(currentLettersGuessed, randomWord);
+                                Console.Write("\r\n");
+                                printLines(randomWord);
+                            }
+                            // User was wrong af
+                            else
+                            {
+                                amountOfTimesWrong += 1;
+                                currentLettersGuessed.Add(letterGuessed);
+                                // Update the drawing
+                                printHangman(amountOfTimesWrong);
+                                // Print word
+                                currentLettersRight = printWord(currentLettersGuessed, randomWord);
+                                Console.Write("\r\n");
+                                printLines(randomWord);
+                            }
                         }
                     }
+                    
                 }
                 // End game, ask to play again
                 Console.WriteLine("\r\nGame is over! Play again?... [Y]/[N]");
