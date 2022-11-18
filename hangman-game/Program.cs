@@ -120,7 +120,25 @@ namespace HangmanGame
             Console.WriteLine("Welcome to hangman!");
             Console.Write("----------------------------------------------");
 
-            
+            // Use random built in class to create another instance of it
+            Random random = new Random();
+            // create a list of words containing the following
+            List<string> wordDictionary = new List<string> { "celebration", "understand", "vegetarian", "transition", "exception", "candidate", "negligence", "difficulty", "treatment" };
+
+            // generate random number between 0 and number of words in wordDictionary, then assigns that word to randomWord
+            int index = random.Next(wordDictionary.Count);
+            String randomWord = wordDictionary[index];
+
+            // Print dashed lines that make up the word
+            foreach (char c in randomWord)
+            {
+                Console.Write("_ ");
+            }
+
+            int lengthOfWordToGuess = randomWord.Length;
+            int amountOfTimesWrong = 0;
+            List<char> currentLettersGuessed = new List<char>();
+            int currentLettersRight = 0;
         }
     }
 }
