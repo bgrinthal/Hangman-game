@@ -151,7 +151,8 @@ namespace HangmanGame
                 int currentLettersRight = 0;
 
                 // Displays previously guessed letters while game is still going
-                while (amountOfTimesWrong != 6 && currentLettersRight != lengthOfWordToGuess)
+                //  Adds currentLetterRight point for every space, to bypass bug of not needing to enter spaces
+                while (amountOfTimesWrong != 6 && currentLettersRight + randomWord.Split(' ').Length - 1 != lengthOfWordToGuess )
                 {
                     Console.Write("\nLetters guessed so far: ");
                     foreach (char letter in currentLettersGuessed)
