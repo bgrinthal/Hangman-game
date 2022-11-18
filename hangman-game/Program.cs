@@ -301,9 +301,9 @@ namespace HangmanGame
             foreach (char c in randomWord)
             {
                 // Allows console to encode Unicode character listed in the line below
-                Console.OutputEncoding = System.Text.Encoding.Unicode;
+                // Console.OutputEncoding = System.Text.Encoding.Unicode;
                 // Print that character
-                Console.Write("\u0305 ");
+                Console.Write("- ");
             }
         }
 
