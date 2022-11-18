@@ -102,7 +102,7 @@ namespace HangmanGame
         }
 
         // prints lines below words for "empty" letters not guessed yet
-        private static void pringLines(String randomWord)
+        private static void printLines(String randomWord)
         {
             // spacing
             Console.Write("\r");
@@ -135,10 +135,32 @@ namespace HangmanGame
                 Console.Write("_ ");
             }
 
+            // Some necessary variables
             int lengthOfWordToGuess = randomWord.Length;
             int amountOfTimesWrong = 0;
             List<char> currentLettersGuessed = new List<char>();
             int currentLettersRight = 0;
+
+            // Displays previously guessed letters while game is still going
+            while(amountOfTimesWrong != 6 && currentLettersRight != lengthOfWordToGuess)
+            {
+                Console.Write("\nLetters guessed so far: ");
+                foreach(char letters in currentLettersGuessed)
+                {
+                    Console.Write(letters + " ");
+                }
+                // Prompt user to guess a letter
+                Console.Write("\nGuess a letter: ");
+                char letterGuessed = Console.ReadLine()[0];
+                // Check if letter has already been guessed
+                if(currentLettersGuessed.Contains(letterGuessed))
+                {
+                    Console.Write("\r\nYou have already guessed this letter.");
+                    printHangman(amountOfTimesWrong);
+                    currentLettersRight = printWord(currentLettersGuessed, randomWord);
+                    printLines(randomWord);
+                }
+            }
         }
     }
 }
