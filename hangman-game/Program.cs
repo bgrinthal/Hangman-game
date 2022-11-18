@@ -317,7 +317,7 @@ namespace HangmanGame
                 // Use random built in class to create another instance of it
                 Random random = new Random();
                 // create a list of words containing the following
-                List<string> wordDictionary = new List<string> { "sunflower", "house", "diamond", "memes", "yeet", "hello", "howdy", "like", "subscribe" };
+                List<string> wordDictionary = new List<string> { "CELEBRATION", "UNDERSTAND", "VEGETARIAN", "TRANSITION", "EXCEPTION", "CANDIDATE", "NEGLIGENCE", "DIFFICULTY", "TREATMENT" };
 
                 // generate random number between 0 and number of words in wordDictionary, then assigns that word to randomWord
                 int index = random.Next(wordDictionary.Count);
@@ -344,7 +344,7 @@ namespace HangmanGame
                     }
                     // Prompt user to guess a letter
                     Console.Write("\nGuess a letter: ");
-                    char letterGuessed = Console.ReadLine()[0];
+                    char letterGuessed = Console.ReadLine().ToUpper()[0];
                     // Check if that letter has already been guessed
                     if (currentLettersGuessed.Contains(letterGuessed))
                     {
