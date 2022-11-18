@@ -125,7 +125,7 @@ namespace HangmanGame
                 // Use random built in class to create another instance of it
                 Random random = new Random();
                 // create a list of words containing the following
-                List<string> wordDictionary = new List<string> { "CELEBRATION HI"};
+                List<string> wordDictionary = new List<string> { "CLEO IS A BABY", "CHLOE IS GRACE", "TWO EYE BADGIE", "KRISTEN IS A SUPERSTAR"};
 
                 // generate random number between 0 and number of words in wordDictionary, then assigns that word to randomWord
                 int index = random.Next(wordDictionary.Count);
@@ -174,9 +174,9 @@ namespace HangmanGame
                         if (currentLettersGuessed.Contains(letterGuessed))
                         {
                             Console.Write("\r\n You have already guessed this letter");
-                            printHangman(amountOfTimesWrong);
-                            currentLettersRight = printWord(currentLettersGuessed, randomWord);
-                            printLines(randomWord);
+                            //printHangman(amountOfTimesWrong);
+                            //currentLettersRight = printWord(currentLettersGuessed, randomWord);
+                            //printLines(randomWord);
                         }
                         else
                         {
