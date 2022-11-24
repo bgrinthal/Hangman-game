@@ -104,7 +104,7 @@ namespace HangmanGame
             foreach (char c in randomWord)
             {
                 // Print that character
-                if(c.ToString() == " ")
+                if (c.ToString() == " ")
                 {
                     Console.Write("  ");
                 }
@@ -405,9 +405,6 @@ namespace HangmanGame
                     else if (x.ToString() == "-")
                     {
                         Console.Write("- ");
-                    }else if (x.ToString() == "-")
-                    {
-                        Console.Write("- ");
                     }
                     else if (x.ToString() == "?")
                     {
@@ -435,10 +432,11 @@ namespace HangmanGame
                 int amountOfTimesWrong = 0;
                 List<char> currentLettersGuessed = new List<char>();
                 int currentLettersRight = 0;
+                int randomWordSymbols = (randomWord.Split(' ').Length - 1) + (randomWord.Split(':').Length - 1) + (randomWord.Split(',').Length - 1) + (randomWord.Split("'").Length - 1) + (randomWord.Split('-').Length - 1) + (randomWord.Split('?').Length - 1) + (randomWord.Split('.').Length - 1);
 
                 // Displays previously guessed letters while game is still going
                 //  Adds currentLetterRight point for every space, to bypass bug of not needing to enter spaces
-                while (amountOfTimesWrong != 6 && currentLettersRight + randomWord.Split(' ').Length - 1 != lengthOfWordToGuess )
+                while (amountOfTimesWrong != 6 && currentLettersRight + randomWordSymbols != lengthOfWordToGuess)
                 {
                     Console.Write("\nLetters guessed so far: ");
                     foreach (char letter in currentLettersGuessed)
@@ -450,7 +448,7 @@ namespace HangmanGame
                     char letterGuessed = Console.ReadLine().ToUpper()[0];
 
                     // Check if input letter is a character from A-Z and not a number or symbol
-                    if(Char.IsLetter(letterGuessed) == false)
+                    if (Char.IsLetter(letterGuessed) == false)
                     {
                         Console.WriteLine("\nMust be a letter (a-z).  Guess again");
                     }
@@ -493,9 +491,9 @@ namespace HangmanGame
                             }
                         }
                     }
-                    
+
                 }
-                if(amountOfTimesWrong == 6)
+                if (amountOfTimesWrong == 6)
                 {
                     // End game if word not guessed, displays and asks to play again
                     Console.WriteLine("\r\nGame is over! The word was " + randomWord);
@@ -514,7 +512,8 @@ namespace HangmanGame
                     {
                         return;
                     }
-                } else
+                }
+                else
                 {
                     // End game if word is guesed, ask to play again
                     Console.WriteLine("\r\nCongrats, you got it!");
