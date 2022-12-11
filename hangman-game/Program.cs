@@ -149,6 +149,7 @@ namespace HangmanGame
                 // Use random built in class to create another instance of it
                 Random random = new Random();
                 // create a list of words containing the following
+                // TODO: Put movie titles in another file to simplify code
                 List<string> wordDictionary = new List<string> { "The, Shawshank. Re-demption",
   "The Godfather",
   "The Godfather: Part II",
@@ -495,7 +496,7 @@ namespace HangmanGame
                     Console.WriteLine("\r\nGame is over! The word was " + randomWord);
                     Console.WriteLine("\r\nPlay again ? ... [Y] /[N]");
                     string playAgain = Console.ReadLine().ToUpper();
-                    //gameOver(playAgain);  <- turn ito owm method to simplify
+                    // TODO: gameOver(playAgain);  <- turn ito owm method to simplify
                     if (playAgain == "Y")
                     {
                         continue;
@@ -515,7 +516,7 @@ namespace HangmanGame
                     Console.WriteLine("\r\nCongrats, you got it!");
                     Console.WriteLine("\r\nPlay again ? ... [Y] /[N]");
                     string playAgain = Console.ReadLine().ToUpper();
-                    //gameOver(playAgain);  <- turn ito owm method to simplify
+                    // TODO: gameOver(playAgain);  <- turn ito owm method to simplify
                     if (playAgain == "Y")
                     {
                         continue;
