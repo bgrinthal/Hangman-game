@@ -431,6 +431,27 @@ namespace HangmanGame
                 int currentLettersRight = 0;
                 int randomWordSymbols = (randomWord.Split(' ').Length - 1) + (randomWord.Split(':').Length - 1) + (randomWord.Split(',').Length - 1) + (randomWord.Split("'").Length - 1) + (randomWord.Split('?').Length - 1) + (randomWord.Split('.').Length - 1);
 
+                //void gameOver()
+                //{
+                //    // End game if word is guesed, ask to play again
+                //    Console.WriteLine("\r\nCongrats, you got it!");
+                //    Console.WriteLine("\r\nPlay again ? ... [Y] /[N]");
+                //    string playAgain = Console.ReadLine().ToUpper();
+                //    // TODO: gameOver(playAgain);  <- turn ito owm method to simplify
+                //    if (playAgain == "Y")
+                //    {
+                //        // continue;
+                //    }
+                //    else if (playAgain == "N")
+                //    {
+                //        return;
+                //    }
+                //    else
+                //    {
+                //        return;
+                //    }
+                //}
+
                 // Displays previously guessed letters while game is still going
                 //  Adds currentLetterRight point for every space, to bypass bug of not needing to enter spaces
                 while (amountOfTimesWrong != 6 && currentLettersRight + randomWordSymbols != lengthOfWordToGuess)
@@ -509,6 +530,7 @@ namespace HangmanGame
                     {
                         return;
                     }
+                    //gameOver();
                 }
                 else
                 {
@@ -529,6 +551,7 @@ namespace HangmanGame
                     {
                         return;
                     }
+                    //gameOver();
                 }
 
             }
